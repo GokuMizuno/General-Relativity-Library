@@ -9,7 +9,10 @@ Their useage is, a = cross(b,c), where a, b, c, are all the same rank.  The alte
 Other objects in the library
 
 Special Relativity
+	Rapidity, Lorentz transformations
 
 Astrophysical objects
 
-Black Holes - Schwartzchild, Kerr, 
+Black Holes - Schwartzchild, Kerr, Reissner-Nordstrom, and Kerr-Newman
+
+
