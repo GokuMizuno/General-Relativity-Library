@@ -1,0 +1,25 @@
+FTensor requires a C++14 conformant compiler.  It is tested with GCC
+6.3.0 and Clang 3.8.
+
+There are no libraries to build.  In principle, FTensor can be used
+directly from a checkout.  There is a build script in 'wscript'.  It
+uses waf to build tests and install headers.  Waf should be included
+with the repository.  For example,
+
+  ./waf configure --prefix=/path/to/install
+  ./waf
+
+will build (but not run) the conformance tests.  You can run the tests
+with the command
+
+  ./build/conformance
+
+Running
+
+  ./waf install
+
+will install the headers in /path/to/install/include.  You can see all
+of the possible options to configure by running
+
+  ./waf configure --help
+

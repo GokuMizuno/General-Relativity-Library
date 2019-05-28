@@ -1,0 +1,43 @@
+ftensor (2.1.0-1) unstable; urgency=low
+
+   * Add many Tensor4*Tensor2 -> Tensor4 operations
+
+ -- Walter Landry <wlandry@caltech.edu>  Fri, 26 Jan 2018 15:42:18 -0800
+ftensor (2.0.1-1) unstable; urgency=low
+
+   * Make Tensor2::operator= work when the dimensions of the index and the Tensor2 are different.
+   * Remove unnecessary inline and const qualifiers from many functions. This should not affect users.
+
+ -- Walter Landry <wlandry@caltech.edu>  Fri, 26 Jan 2018 15:42:18 -0800
+ftensor (2.0.0-1) unstable; urgency=low
+
+  * Rename the Riemann, dg, christof, and ddg to not have Tensor* prefix
+
+ -- Walter Landry <wlandry@caltech.edu>  Wed, 3 Jan 2017 13:32:08 -0800
+ftensor (1.3.2-1) unstable; urgency=low
+
+  * Add Levi_Civita tensors and cross()
+
+ -- Walter Landry <wlandry@caltech.edu>  Wed, 3 Jan 2017 13:32:08 -0800
+ftensor (1.3.1-1) unstable; urgency=low
+
+  * Make internal contractions work for const Tensor2{_symmetric}
+  * Add iostream operators to Tensor3
+
+ -- Walter Landry <wlandry@caltech.edu>  Fri, 26 May 2017 01:39:42 -0800
+ftensor (1.3.0-1) unstable; urgency=low
+
+  * Add iostream operators to Tensor1 and Tensor2{_{anti}symmetric}
+
+ -- Walter Landry <wlandry@caltech.edu>  Sat, 20 Aug 2016 14:52:14 -0800
+ftensor (1.2.1-1) unstable; urgency=low
+
+  * Add l2() and normalize() to Tensor1
+
+ -- Walter Landry <wlandry@caltech.edu>  Sat, 20 Aug 2016 14:52:14 -0800
+
+ftensor (1.2.0-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Walter Landry <wlandry@caltech.edu>  Tue, 03 Dec 2013 09:14:43 -0800

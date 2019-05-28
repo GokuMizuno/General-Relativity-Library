@@ -1,0 +1,23 @@
+Source: ftensor
+Priority: extra
+Maintainer: Walter Landry <wlandry@caltech.edu>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev
+Standards-Version: 3.9.3
+Section: libs
+Homepage: http://www.wlandry.net/Projects/FTensor
+
+Package: libftensor-dev
+Section: libdevel
+Architecture: any
+Description: Fast tensor types for C++
+ FTensor implements tensor types for C++.  It allows you to use
+ natural notation to express operations such as sums and contractions.
+ For example, creating a matrix from an sum of two outer products of
+ vectors would look like
+ .
+ A(i,j)=B(i)*C(j) + D(j)*E(i)
+ .
+ FTensor is header-only and implemented with expression templates.
+ This allows most expressions to be unrolled at compile time, meaning
+ that performance is on par with hand-rolled code.  It has been
+ thoroughly tested and benchmarked.
