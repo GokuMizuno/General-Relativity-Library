@@ -30,6 +30,22 @@ using namespace GRLib
 			double r = (6*G_N * M)/(c^2);
 			return r;
 		}
+
+		Schwartzchild_Radius(T &mass)  //returns r_s of a given mass
+		{
+			T rs = (2* G_N /c^2) * *mass;
+			return rs;
+		}
+
+		Ergosphere_Radius(mass, rotationalVelocity, angleOfThePointOfInterest)
+		{ }
+
+		Schwartzchild_Density(mass)
+		{
+			double rho = ((3*c^6)/(32*PI*G_N^3 * M^2));
+			return rho;
+		}
+
 		protected:
 		private:
 	};

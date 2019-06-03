@@ -6,7 +6,15 @@ The expanded library had dot, double dot, cross, and wedge products for both vec
 
 Their useage is, a = cross(b,c), where a, b, c, are all the same rank.  The alternate use is cross(*tensor, rank, *tensor, rank) where the rank is for the preceding tensor.
 
+Coordinate transformations
+	Cartesian
+	Spherical
+	Hyperbolic
+	Cylindrical
+
 Other objects in the library
+	Metric
+	Geodesic
 
 Special Relativity
 	Rapidity, Lorentz transformations
@@ -14,5 +22,6 @@ Special Relativity
 Astrophysical objects
 
 Black Holes - Schwartzchild, Kerr, Reissner-Nordstrom, and Kerr-Newman
-
+	Innermost Stable Circular Orbit
+	Photon sphere
 
