@@ -20,6 +20,11 @@ namespace GRLib
 			T z_prime = *z;
 			T t_prime = gamma(t - ((*v * *x) / (c ^ 2)));
 		}
+		template <class T> class Position(T &x, T &v)  //make this a function called forward transform
+		{
+			T x_prime = gamma(*x - *v(*t));
+			return x_prime;
+		}
 
 	private:
 		gamma(T frameVelocity)
@@ -37,20 +42,9 @@ namespace GRLib
 	template <class T> class Velocity(T &vx, T &vy, T &vz, T &vt)
 	{
 	public:
-		T> class Velocity(A_type vx, A_)();
-		~T> class Velocity(A_type vx, A_)();
 
 	private:
-		 
-	};
 
-	T> class Velocity(A_type vx, A_)::T> class Velocity(A_type vx, A_)()
-	{
-	}
-
-	T> class Velocity(A_type vx, A_)::~T> class Velocity(A_type vx, A_)()
-	{
-	}
 }
 
 //Lorentz transformations
