@@ -28,31 +28,47 @@ class Matrix
 		  but zero everywhere else.  For R^n, I = 1.*/
 		matrix Id(int dim)
 		{
-			//make sure the matrix actually exists, and memory is allocated.
-			static_assert(this, matrix(dim, dim));
-			#pragma omp parallel
-			for (int i = 0; i < dim; i++)
-			{
-				for (int j = 0; i < dim; j++)
-				{
-					if (i == j)
-						this[i][i] = 1;
-					else
-						this[i][j] = 0;
-				}
-			}
+			matrix mat = Id(dim, dim);
+			return mat;
 		}
 
 		matrix Id(int row, int col)
 		{
 			//construct matrix
 			mat = new matrix(row, col);
+			//assert it was made
+			//assert(mat, blahblah)
 			//then
 			#pragma omp parallel
 			for (int i = 0; i < row, i++)
 			{
 				for (int j = 0; j < col; j++)
+				{
+					if (i == j)  mat[i][j] = 1;
+					else  mat[i][j] = 0;
+				}
+			}
+			return mat;
+		}
+
+		matrix Zero(int dim)
+		{
+			matrix mat = Zero(dim, dim);
+			return mat;
+		}
+
+		matrix Zero(int row, int col)
+		{
+			mat = new matrix(row, col);
+			//assert
+
+			#pragma omp parallel
+			for (int i = 0; i < row; i++)
+			{
+				for (int j = 0; j < col; j++)
+				{
 					mat[i][j] = 0;
+				}
 			}
 			return mat;
 		}
