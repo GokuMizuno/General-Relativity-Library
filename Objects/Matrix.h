@@ -46,7 +46,14 @@ public:
 	unsigned getRows() const;
 	unsigned getCols() const;
 
-	//
+	//Make a zero matrix
+	Matrix<T> zero(unsigned _rows, unsigned _cols);
+	//Make a square zero matrix
+	Matrix<T> zero(unsigned dimension);
+	//Make an Identity matrix
+	Matrix<T> id(unsigned dimension);
+	//make a diag matrix
+	Matrix<T> diag(const std::vector<T>& rhs);
 };
 
 #include "matrix.cpp"
