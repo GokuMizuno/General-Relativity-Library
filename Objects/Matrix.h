@@ -1,89 +1,54 @@
-//simple matrix class
-#ifndef MATRIX_H
-#define MATRIX_H
-#pragma once
+/*Matrix class for GRLib*/
+#ifndef __MATRIX_H
+#define __MATRIX_H
 
 #include <vector>
-#include <omp>
+#include <omp.h>
 
-template<typename Object>
-class Matrix
-{
-	public:
-		matrix(int rows, int columns) : array(rows)
-		{
-			#pragma omp parallel
-			for(auto &thisRow : array)
-				thisRow.resize(columns);
-		}
+template <typename T> class Matrix {
+private:
+	std::vector<std::vector<T> > mat;
+	unsigned rows;
+	unsigned cols;
 
-		matrix(std::vector<std::vector<Object>> v : array{v} {}
-		matrix(std::vector<std::vector<Object>> &&v : array{std::move(v)} {}
-		const std::vector<Object> & operator [](int row) const {  return array[row];  }
-		const std::vector<Object> & operator [](int row) {  return array[row];  }
-		int numRows() const {  return array.size();  }
-		int numCols() const {  return numRows() ? array[0].size : 0;  }
+public:
+	Matrix(unsigned _rows, unsigned _cols, const T& _initial);
+	Matrix(const Matrix<T>& rhs);
+	virtual ~Matrix();
 
-		/*An identity matrix is one that has the identity element down the diagonal
-		  but zero everywhere else.  For R^n, I = 1.*/
-		matrix Id(int dim)
-		{
-			matrix mat = Id(dim, dim);
-			return mat;
-		}
+	// Operator overloading, for "standard" mathematical matrix operations                                                                                                                                                          
+	Matrix<T>& operator=(const Matrix<T>& rhs);
 
-		matrix Id(int row, int col)
-		{
-			//construct matrix
-			mat = new matrix(row, col);
-			//assert it was made
-			//assert(mat, blahblah)
-			//then
-			#pragma omp parallel
-			for (int i = 0; i < row, i++)
-			{
-				for (int j = 0; j < col; j++)
-				{
-					if (i == j)  mat[i][j] = 1;
-					else  mat[i][j] = 0;
-				}
-			}
-			return mat;
-		}
+	// Matrix mathematical operations                                                                                                                                                                                               
+	Matrix<T> operator+(const Matrix<T>& rhs);
+	Matrix<T>& operator+=(const Matrix<T>& rhs);
+	Matrix<T> operator-(const Matrix<T>& rhs);
+	Matrix<T>& operator-=(const Matrix<T>& rhs);
+	Matrix<T> operator*(const Matrix<T>& rhs);
+	Matrix<T>& operator*=(const Matrix<T>& rhs);
+	Matrix<T> transpose();
 
-		matrix Zero(int dim)
-		{
-			matrix mat = Zero(dim, dim);
-			return mat;
-		}
+	// Matrix/scalar operations                                                                                                                                                                                                     
+	Matrix<T> operator+(const T& rhs);
+	Matrix<T> operator-(const T& rhs);
+	Matrix<T> operator*(const T& rhs);
+	Matrix<T> operator/(const T& rhs);
 
-		matrix Zero(int row, int col)
-		{
-			mat = new matrix(row, col);
-			//assert
+	// Matrix/vector operations                                                                                                                                                                                                     
+	std::vector<T> operator*(const std::vector<T>& rhs);
+	std::vector<T> diagVec();
 
-			#pragma omp parallel
-			for (int i = 0; i < row; i++)
-			{
-				for (int j = 0; j < col; j++)
-				{
-					mat[i][j] = 0;
-				}
-			}
-			return mat;
-		}
+	// Access the individual elements                                                                                                                                                                                               
+	T& operator()(const unsigned& row, const unsigned& col);
+	const T& operator()(const unsigned& row, const unsigned& col) const;
 
-		//matrix diag(int dim = 4, ...)
-		//{
-		//	;
-		//}
-		//matrix diag(std::vector<Object> v)
-		//{
-		//	//put at diags
-		//	for(auto i : v)
-		//}
+	// Access the row and column sizes                                                                                                                                                                                              
+	unsigned getRows() const;
+	unsigned getCols() const;
 
-	private:
-		std::vector<std::vector<Object>> array;
+	//
 };
+
+#include "matrix.cpp"
+
 #endif
