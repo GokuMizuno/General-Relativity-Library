@@ -1,5 +1,6 @@
 #include <math>
 #include <complex>
+#include "../Objects/Constants.h"
 
 namespace GRLib
 {
@@ -29,9 +30,9 @@ namespace GRLib
 	private:
 		gamma(T frameVelocity)
 		{
-			int c = 300000; //m/s  will need to change this later to match units and type of passing array
+			//int c = 300000; //m/s  will need to change this later to match units and type of passing array
 
-			if (v >= (T)c)
+			if (v >= T c)
 				//faster than light, throw error
 				return 0;
 			else
