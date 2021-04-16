@@ -102,8 +102,11 @@ namespace GRLib
 			r_Sun = 696.34E6;  //meters
 
 			//Cosmological
-			const double lambda = ;
-			const double H_0 = ;
+			const double lambda = 1.1056E-52;  //m^-2
+			const double H_0 = 73.8;  //km/s/Mpc
+			const double AU = 1.496E11;  //m
+			const double ly = 9.461E15; //m
+			const double pc = 3.262 * ly;  //m
 
 			//break;
 	}
